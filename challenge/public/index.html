@@ -1,180 +1,499 @@
+<!DOCTYPE html>
 <html lang="en">
-<head>
+
+  <head>
     <title>Braineffect - Challenge</title>
-</head>
-<body>
-<h1>HTML Ipsum Presents</h1>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/app.js" defer></script>
+  </head>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus
-    diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus
-    sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. </p>
+  <body class="bg-gray-100 font-sans leading-normal tracking-normal">
+    <div>
+      <nav id="header" class="fixed w-full z-10 top-0 bg-gray-200">
+        <div
+          class="w-full md:max-w-4xl mx-auto flex flex-wrap items-center justify-between mt-0 py-3"
+        >
+          <div class="pl-4">
+            <a
+              class="text-gray-900 text-base no-underline hover:no-underline font-extrabold text-xl"
+              href="#"
+            >
+              All about Singapore
+            </a>
+          </div>
 
-<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. <b>Lorem ipsum dolor sit
-    amet, consectetur adipiscing elit</b>. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur
-    tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem.
-    <b>Vestibulum lacinia arcu eget nulla</b>. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis
-    vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus,
-    ullamcorper vel, tincidunt sed, euismod in, nibh. </p>
+          <div class="block lg:hidden pr-4">
+            <button
+              id="nav-toggle"
+              class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-gray-900 hover:border-green-500 appearance-none focus:outline-none"
+            >
+              <svg
+                class="fill-current h-3 w-3"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Menu</title>
+                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+              </svg>
+            </button>
+          </div>
 
-<p>Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
-    himenaeos. Nam nec ante. <i>Curabitur tortor</i>. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing
-    diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus
-    consequat imperdiet. <b>Fusce ac turpis quis ligula lacinia aliquet</b>. Vestibulum sapien. <i>In scelerisque sem at
-        dolor</i>. Proin quam. Etiam ultrices. <b>Nam nec ante</b>. Suspendisse in justo eu magna luctus suscipit. Sed
-    lectus. </p>
+          <div
+            class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 bg-gray-100 md:bg-transparent z-20"
+            id="nav-content"
+          >
+            <ul class="list-reset lg:flex justify-end flex-1 items-center">
+              <li class="mr-3">
+                <a
+                  class="inline-block py-2 px-4 text-gray-900 font-bold no-underline"
+                  href="#"
+                  >Home</a
+                >
+              </li>
+              <!-- <li class="mr-3">
+                <a
+                  class="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-2 px-4"
+                  href="#"
+                  >link</a
+                >
+              </li>
+              <li class="mr-3">
+                <a
+                  class="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-2 px-4"
+                  href="#"
+                  >link</a
+                >
+              </li> -->
+            </ul>
+          </div>
+        </div>
+      </nav>
 
-<p>Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum
-    magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi
-    lacinia molestie dui. Praesent blandit dolor. <i>Morbi lectus risus, iaculis vel, suscipit quis, luctus non,
-        massa</i>. Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis
-    laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Ut
-    ultrices ultrices enim. Curabitur sit amet mauris. Morbi in dui quis est pulvinar ullamcorper. Nulla facilisi.
-    Integer lacinia sollicitudin massa. </p>
+      <div class="w-full bg-gray-200 rounded-full fixed z-20">
+        <div
+          id="progress-bar"
+          class="bg-green-600 text-xs font-medium p-0.5 leading-none rounded-full"
+          style="width: 0%"
+        ></div>
+      </div>
 
-<p>Cras metus. Sed aliquet risus a tortor. Integer id quam. Morbi mi. <b>Curabitur sit amet mauris</b>. Quisque nisl
-    felis, venenatis tristique, dignissim in, ultrices sit amet, augue. Proin sodales libero eget ante. Nulla quam.
-    Aenean laoreet. Vestibulum nisi lectus, commodo ac, facilisis ac, ultricies eu, pede. Ut orci risus, accumsan
-    porttitor, cursus quis, aliquet eget, justo. Sed pretium blandit orci. </p>
+      <!--Container-->
+      <div class="container w-full md:max-w-3xl mx-auto pt-20">
+        <div
+          class="w-full px-4 md:px-6 text-xl text-gray-800 leading-normal"
+          style="font-family: Georgia, serif"
+        >
+          <!--Title-->
+          <div class="font-sans">
+            <h1
+              class="font-bold font-sans break-normal text-gray-900 pt-6 pb-2 text-3xl md:text-4xl"
+            >
+              HTML Ipsum Presents
+            </h1>
+            <p class="text-sm md:text-base font-normal text-gray-600">
+              Published 22 October 2022
+            </p>
+          </div>
 
-<p><i>Sed non quam</i>. Ut eu diam at pede suscipit sodales. Aenean lectus elit, fermentum non, convallis id, sagittis
-    at, neque. Nullam mauris orci, aliquet et, iaculis et, viverra vitae, ligula. Nulla ut felis in purus aliquam
-    imperdiet. Maecenas aliquet mollis lectus. Vivamus consectetuer risus et tortor. Lorem ipsum dolor sit amet,
-    consectetur adipiscing elit. Integer nec odio. Praesent libero. <b>Vestibulum nisi lectus, commodo ac, facilisis ac,
-        ultricies eu, pede</b>. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis
-    sagittis ipsum. </p>
+          <!--Post Content-->
 
-<p>Praesent mauris. <b>Integer nec odio</b>. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia
-    arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-    Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. <i>Integer nec odio</i>.
-    Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. <b>Fusce nec tellus sed augue semper
-        porta</b>. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. </p>
+          <!--Lead Para-->
+          <p class="py-6">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec
+            odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla
+            quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent
+            mauris. Fusce nec tellus sed augue semper porta. Mauris massa.
+            Vestibulum lacinia arcu eget nulla.
+          </p>
 
-<p><i>Duis sagittis ipsum</i>. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis
-    ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque
-    volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
-    himenaeos. Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante
-    quis turpis. Nulla facilisi. Ut fringilla. <b>Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa</b>.
-    Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. </p>
+          <p class="py-6">
+            Class aptent taciti sociosqu ad litora torquent per conubia nostra,
+            per inceptos himenaeos.
+            <b>Lorem ipsum dolor sit amet, consectetur adipiscing elit</b>.
+            Curabitur sodales ligula in libero. Sed dignissim lacinia nunc.
+            Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem
+            at dolor. Maecenas mattis. Sed convallis tristique sem.
+            <b>Vestibulum lacinia arcu eget nulla</b>. Proin ut ligula vel nunc
+            egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis,
+            luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet.
+            Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed,
+            euismod in, nibh.
+          </p>
 
-<p>Vestibulum sapien. Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer
-    euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna
-    augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi
-    lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum. </p>
+          <p class="py-6">
+            Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad
+            litora torquent per conubia nostra, per inceptos himenaeos. Nam nec
+            ante.
+            <i>Curabitur tortor</i>. Sed lacinia, urna non tincidunt mattis,
+            tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla
+            facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a
+            tellus consequat imperdiet.
+            <b>Fusce ac turpis quis ligula lacinia aliquet</b>. Vestibulum
+            sapien. <i>In scelerisque sem at dolor</i>. Proin quam. Etiam
+            ultrices. <b>Nam nec ante</b>. Suspendisse in justo eu magna luctus
+            suscipit. Sed lectus.
+          </p>
 
-<p>Morbi in ipsum sit amet pede facilisis laoreet. <i>Class aptent taciti sociosqu ad litora torquent per conubia
-    nostra, per inceptos himenaeos</i>. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum
-    tincidunt malesuada tellus. Ut ultrices ultrices enim. Curabitur sit amet mauris. Morbi in dui quis est pulvinar
-    ullamcorper. Nulla facilisi. <b>Praesent blandit dolor</b>. Integer lacinia sollicitudin massa. <b>Praesent blandit
-        dolor</b>. Cras metus. Sed aliquet risus a tortor. Integer id quam. </p>
+          <p class="py-6">
+            Integer euismod lacus luctus magna. Quisque cursus, metus vitae
+            pharetra auctor, sem massa mattis sem, at interdum magna augue eget
+            diam. Vestibulum ante ipsum primis in faucibus orci luctus et
+            ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent
+            blandit dolor.
+            <i
+              >Morbi lectus risus, iaculis vel, suscipit quis, luctus non,
+              massa</i
+            >. Sed non quam. In vel mi sit amet augue congue elementum. Morbi in
+            ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra
+            nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada
+            tellus. Ut ultrices ultrices enim. Curabitur sit amet mauris. Morbi
+            in dui quis est pulvinar ullamcorper. Nulla facilisi. Integer
+            lacinia sollicitudin massa.
+          </p>
 
-<p>Morbi mi. Quisque nisl felis, venenatis tristique, dignissim in, ultrices sit amet, augue. <i>Suspendisse in justo eu
-    magna luctus suscipit</i>. Proin sodales libero eget ante. Nulla quam. Aenean laoreet. Vestibulum nisi lectus,
-    commodo ac, facilisis ac, ultricies eu, pede. Ut orci risus, accumsan porttitor, cursus quis, aliquet eget, justo.
-    Sed pretium blandit orci. Ut eu diam at pede suscipit sodales. <b>Proin sodales libero eget ante</b>. Aenean lectus
-    elit, fermentum non, convallis id, sagittis at, neque. Nullam mauris orci, aliquet et, iaculis et, viverra vitae,
-    ligula. </p>
+          <p class="py-6">
+            Cras metus. Sed aliquet risus a tortor. Integer id quam. Morbi mi.
+            <b>Curabitur sit amet mauris</b>. Quisque nisl felis, venenatis
+            tristique, dignissim in, ultrices sit amet, augue. Proin sodales
+            libero eget ante. Nulla quam. Aenean laoreet. Vestibulum nisi
+            lectus, commodo ac, facilisis ac, ultricies eu, pede. Ut orci risus,
+            accumsan porttitor, cursus quis, aliquet eget, justo. Sed pretium
+            blandit orci.
+          </p>
 
-<p>Nulla ut felis in purus aliquam imperdiet. Maecenas aliquet mollis lectus. Vivamus consectetuer risus et tortor.
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus
-    diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus
-    sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. </p>
+          <p class="py-6">
+            <i>Sed non quam</i>. Ut eu diam at pede suscipit sodales. Aenean
+            lectus elit, fermentum non, convallis id, sagittis at, neque. Nullam
+            mauris orci, aliquet et, iaculis et, viverra vitae, ligula. Nulla ut
+            felis in purus aliquam imperdiet. Maecenas aliquet mollis lectus.
+            Vivamus consectetuer risus et tortor. Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Integer nec odio. Praesent libero.
+            <b
+              >Vestibulum nisi lectus, commodo ac, facilisis ac, ultricies eu,
+              pede</b
+            >. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh
+            elementum imperdiet. Duis sagittis ipsum.
+          </p>
 
-<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. <b>Praesent libero</b>.
-    Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. <b>Duis sagittis ipsum</b>. Curabitur tortor.
-    Pellentesque nibh. <i>Praesent libero</i>. Aenean quam. In scelerisque sem at dolor. <b>Duis sagittis ipsum</b>.
-    Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus,
-    iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla
-    metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. </p>
+          <p class="py-6">
+            Praesent mauris. <b>Integer nec odio</b>. Fusce nec tellus sed augue
+            semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.
+            Class aptent taciti sociosqu ad litora torquent per conubia nostra,
+            per inceptos himenaeos. Curabitur sodales ligula in libero. Sed
+            dignissim lacinia nunc. Curabitur tortor. <i>Integer nec odio</i>.
+            Pellentesque nibh. Aenean quam. In scelerisque sem at dolor.
+            Maecenas mattis. <b>Fusce nec tellus sed augue semper porta</b>. Sed
+            convallis tristique sem. Proin ut ligula vel nunc egestas porttitor.
+          </p>
 
-<p>Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
-    himenaeos. Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante
-    quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet.
-    Vestibulum sapien. Proin quam. Etiam ultrices. </p>
+          <p class="py-6">
+            <i>Duis sagittis ipsum</i>. Morbi lectus risus, iaculis vel,
+            suscipit quis, luctus non, massa. Fusce ac turpis quis ligula
+            lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel,
+            tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit.
+            Class aptent taciti sociosqu ad litora torquent per conubia nostra,
+            per inceptos himenaeos. Nam nec ante. Sed lacinia, urna non
+            tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante
+            quis turpis. Nulla facilisi. Ut fringilla.
+            <b
+              >Morbi lectus risus, iaculis vel, suscipit quis, luctus non,
+              massa</b
+            >. Suspendisse potenti. Nunc feugiat mi a tellus consequat
+            imperdiet.
+          </p>
 
-<p>Suspendisse in justo eu magna luctus suscipit. Sed lectus. <b>Ut fringilla</b>. Integer euismod lacus luctus magna.
-    Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum
-    ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent
-    blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum. <i>Suspendisse potenti</i>. Morbi in ipsum
-    sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt
-    malesuada tellus. Ut ultrices ultrices enim. Curabitur sit amet mauris. </p>
+          <p class="py-6">
+            Vestibulum sapien. Proin quam. Etiam ultrices. Suspendisse in justo
+            eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus
+            magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis
+            sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis
+            in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi
+            lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel
+            mi sit amet augue congue elementum.
+          </p>
 
-<p><b>Integer euismod lacus luctus magna</b>. Morbi in dui quis est pulvinar ullamcorper. Nulla facilisi. Integer
-    lacinia sollicitudin massa. <i>Vestibulum sapien</i>. Cras metus. Sed aliquet risus a tortor. Integer id quam. Morbi
-    mi. Quisque nisl felis, venenatis tristique, dignissim in, ultrices sit amet, augue. Proin sodales libero eget ante.
-    <i>Morbi in ipsum sit amet pede facilisis laoreet</i>. Nulla quam. Aenean laoreet. </p>
+          <p class="py-6">
+            Morbi in ipsum sit amet pede facilisis laoreet.
+            <i
+              >Class aptent taciti sociosqu ad litora torquent per conubia
+              nostra, per inceptos himenaeos</i
+            >. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue.
+            Vestibulum tincidunt malesuada tellus. Ut ultrices ultrices enim.
+            Curabitur sit amet mauris. Morbi in dui quis est pulvinar
+            ullamcorper. Nulla facilisi. <b>Praesent blandit dolor</b>. Integer
+            lacinia sollicitudin massa. <b>Praesent blandit dolor</b>. Cras
+            metus. Sed aliquet risus a tortor. Integer id quam.
+          </p>
 
-<h2>Header Level 2</h2>
+          <p class="py-6">
+            Morbi mi. Quisque nisl felis, venenatis tristique, dignissim in,
+            ultrices sit amet, augue.
+            <i>Suspendisse in justo eu magna luctus suscipit</i>. Proin sodales
+            libero eget ante. Nulla quam. Aenean laoreet. Vestibulum nisi
+            lectus, commodo ac, facilisis ac, ultricies eu, pede. Ut orci risus,
+            accumsan porttitor, cursus quis, aliquet eget, justo. Sed pretium
+            blandit orci. Ut eu diam at pede suscipit sodales.
+            <b>Proin sodales libero eget ante</b>. Aenean lectus elit, fermentum
+            non, convallis id, sagittis at, neque. Nullam mauris orci, aliquet
+            et, iaculis et, viverra vitae, ligula.
+          </p>
 
-<p><b>Integer lacinia sollicitudin massa</b>. Vestibulum nisi lectus, commodo ac, facilisis ac, ultricies eu, pede. Ut
-    orci risus, accumsan porttitor, cursus quis, aliquet eget, justo. <b>Integer id quam</b>. Sed pretium blandit orci.
-    Ut eu diam at pede suscipit sodales. Aenean lectus elit, fermentum non, convallis id, sagittis at, neque. Nullam
-    mauris orci, aliquet et, iaculis et, viverra vitae, ligula. Nulla ut felis in purus aliquam imperdiet. Maecenas
-    aliquet mollis lectus. Vivamus consectetuer risus et tortor. <b>Vestibulum nisi lectus, commodo ac, facilisis ac,
-        ultricies eu, pede</b>. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. </p>
+          <p class="py-6">
+            Nulla ut felis in purus aliquam imperdiet. Maecenas aliquet mollis
+            lectus. Vivamus consectetuer risus et tortor. Lorem ipsum dolor sit
+            amet, consectetur adipiscing elit. Integer nec odio. Praesent
+            libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at
+            nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris.
+            Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum
+            lacinia arcu eget nulla.
+          </p>
 
-<p>Praesent libero. <b>Sed pretium blandit orci</b>. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh
-    elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. <b>Lorem ipsum
-        dolor sit amet, consectetur adipiscing elit</b>. Mauris massa. <b>Sed cursus ante dapibus diam</b>. Vestibulum
-    lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-    Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. </p>
+          <p class="py-6">
+            Class aptent taciti sociosqu ad litora torquent per conubia nostra,
+            per inceptos himenaeos. <b>Praesent libero</b>. Curabitur sodales
+            ligula in libero. Sed dignissim lacinia nunc.
+            <b>Duis sagittis ipsum</b>. Curabitur tortor. Pellentesque nibh.
+            <i>Praesent libero</i>. Aenean quam. In scelerisque sem at dolor.
+            <b>Duis sagittis ipsum</b>. Maecenas mattis. Sed convallis tristique
+            sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus,
+            iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis
+            ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper
+            vel, tincidunt sed, euismod in, nibh.
+          </p>
 
-<p>Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis
-    tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus
-    non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt
-    sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per
-    conubia nostra, per inceptos himenaeos. </p>
+          <p class="py-6">
+            Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad
+            litora torquent per conubia nostra, per inceptos himenaeos. Nam nec
+            ante. Sed lacinia, urna non tincidunt mattis, tortor neque
+            adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut
+            fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat
+            imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices.
+          </p>
 
-<p>Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis.
-    Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. <i>Sed dignissim
-        lacinia nunc</i>. Vestibulum sapien. Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit.
-    Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem,
-    at interdum magna augue eget diam. </p>
+          <p class="py-6">
+            Suspendisse in justo eu magna luctus suscipit. Sed lectus.
+            <b>Ut fringilla</b>. Integer euismod lacus luctus magna. Quisque
+            cursus, metus vitae pharetra auctor, sem massa mattis sem, at
+            interdum magna augue eget diam. Vestibulum ante ipsum primis in
+            faucibus orci luctus et ultrices posuere cubilia Curae; Morbi
+            lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel
+            mi sit amet augue congue elementum. <i>Suspendisse potenti</i>.
+            Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc,
+            viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt
+            malesuada tellus. Ut ultrices ultrices enim. Curabitur sit amet
+            mauris.
+          </p>
 
-<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui.
-    Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede
-    facilisis laoreet. <b>Suspendisse in justo eu magna luctus suscipit</b>. Donec lacus nunc, viverra nec, blandit vel,
-    egestas et, augue. Vestibulum tincidunt malesuada tellus. Ut ultrices ultrices enim. Curabitur sit amet mauris.
-    Morbi in dui quis est pulvinar ullamcorper. Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. </p>
+          <p class="py-6">
+            <b>Integer euismod lacus luctus magna</b>. Morbi in dui quis est
+            pulvinar ullamcorper. Nulla facilisi. Integer lacinia sollicitudin
+            massa. <i>Vestibulum sapien</i>. Cras metus. Sed aliquet risus a
+            tortor. Integer id quam. Morbi mi. Quisque nisl felis, venenatis
+            tristique, dignissim in, ultrices sit amet, augue. Proin sodales
+            libero eget ante.
+            <i>Morbi in ipsum sit amet pede facilisis laoreet</i>. Nulla quam.
+            Aenean laoreet.
+          </p>
 
-<p>Sed aliquet risus a tortor. <b>Donec lacus nunc, viverra nec, blandit vel, egestas et, augue</b>. Integer id quam.
-    Morbi mi. Quisque nisl felis, venenatis tristique, dignissim in, ultrices sit amet, augue. <b>Morbi in dui quis est
-        pulvinar ullamcorper</b>. Proin sodales libero eget ante. Nulla quam. <i>Vestibulum ante ipsum primis in
-        faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui</i>. Aenean laoreet.
-    Vestibulum nisi lectus, commodo ac, facilisis ac, ultricies eu, pede. Ut orci risus, accumsan porttitor, cursus
-    quis, aliquet eget, justo. Sed pretium blandit orci. Ut eu diam at pede suscipit sodales. Aenean lectus elit,
-    fermentum non, convallis id, sagittis at, neque. </p>
+          <h2 class="mt-12 py-6 text-4xl text-bold">Header Level 2</h2>
 
-<p>Nullam mauris orci, aliquet et, iaculis et, viverra vitae, ligula. Nulla ut felis in purus aliquam imperdiet.
-    Maecenas aliquet mollis lectus. Vivamus consectetuer risus et tortor. <i>Vestibulum tincidunt malesuada tellus</i>.
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. <b>Ut eu diam at pede
-        suscipit sodales</b>. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis
-    sagittis ipsum. Praesent mauris. </p>
+          <p class="py-6">
+            <b>Integer lacinia sollicitudin massa</b>. Vestibulum nisi lectus,
+            commodo ac, facilisis ac, ultricies eu, pede. Ut orci risus,
+            accumsan porttitor, cursus quis, aliquet eget, justo.
+            <b>Integer id quam</b>. Sed pretium blandit orci. Ut eu diam at pede
+            suscipit sodales. Aenean lectus elit, fermentum non, convallis id,
+            sagittis at, neque. Nullam mauris orci, aliquet et, iaculis et,
+            viverra vitae, ligula. Nulla ut felis in purus aliquam imperdiet.
+            Maecenas aliquet mollis lectus. Vivamus consectetuer risus et
+            tortor.
+            <b
+              >Vestibulum nisi lectus, commodo ac, facilisis ac, ultricies eu,
+              pede</b
+            >. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+            nec odio.
+          </p>
 
-<p>Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti
-    sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed
-    dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas
-    mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel,
-    suscipit quis, luctus non, massa. </p>
+          <p class="py-6">
+            Praesent libero. <b>Sed pretium blandit orci</b>. Sed cursus ante
+            dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
+            Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue
+            semper porta.
+            <b>Lorem ipsum dolor sit amet, consectetur adipiscing elit</b>.
+            Mauris massa. <b>Sed cursus ante dapibus diam</b>. Vestibulum
+            lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora
+            torquent per conubia nostra, per inceptos himenaeos. Curabitur
+            sodales ligula in libero. Sed dignissim lacinia nunc.
+          </p>
 
-<p>Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. <i>Mauris massa</i>. Nulla metus metus, ullamcorper vel,
-    tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent
-    per conubia nostra, per inceptos himenaeos. Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque
-    adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. <b>Morbi lectus risus, iaculis vel, suscipit quis,
-        luctus non, massa</b>. Ut fringilla. Suspendisse potenti. <i>Maecenas mattis</i>. Nunc feugiat mi a tellus
-    consequat imperdiet. </p>
+          <p class="py-6">
+            Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem
+            at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut
+            ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel,
+            suscipit quis, luctus non, massa. Fusce ac turpis quis ligula
+            lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel,
+            tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit.
+            Class aptent taciti sociosqu ad litora torquent per conubia nostra,
+            per inceptos himenaeos.
+          </p>
 
-<p>Vestibulum sapien. Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer
-    euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna
-    augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi
-    lacinia molestie dui. Praesent blandit dolor. Sed non quam. <b>Nunc feugiat mi a tellus consequat imperdiet</b>. In
-    vel mi sit amet augue congue elementum. <i>Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh</i>.
-    Morbi in ipsum sit amet pede facilisis laoreet. </p>
+          <p class="py-6">
+            Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque
+            adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut
+            fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat
+            imperdiet. <i>Sed dignissim lacinia nunc</i>. Vestibulum sapien.
+            Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus
+            suscipit. Sed lectus. Integer euismod lacus luctus magna. Quisque
+            cursus, metus vitae pharetra auctor, sem massa mattis sem, at
+            interdum magna augue eget diam.
+          </p>
 
-<p>Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. <b>Quisque cursus, metus vitae pharetra auctor, sem
-    massa mattis sem, at interdum magna augue eget diam</b>. Vestibulum tincidunt malesuada tellus. Ut ultrices ultrices
-    enim. <b>Suspendisse in justo eu magna luctus suscipit</b>. Curabitur sit amet mauris. <i>Nulla metus metus,
-        ullamcorper vel, tincidunt sed, euismod in, nibh</i>. Morbi in dui quis est pulvinar ullamcorper. Nulla
-    facilisi. Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor. Integer id quam. Morbi mi.
-    Quisque nisl felis, venenatis tristique, dignissim in, ultrices sit amet, augue. </p>
-</body>
+          <p class="py-6">
+            Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+            posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit
+            dolor. Sed non quam. In vel mi sit amet augue congue elementum.
+            Morbi in ipsum sit amet pede facilisis laoreet.
+            <b>Suspendisse in justo eu magna luctus suscipit</b>. Donec lacus
+            nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum
+            tincidunt malesuada tellus. Ut ultrices ultrices enim. Curabitur sit
+            amet mauris. Morbi in dui quis est pulvinar ullamcorper. Nulla
+            facilisi. Integer lacinia sollicitudin massa. Cras metus.
+          </p>
+
+          <p class="py-6">
+            Sed aliquet risus a tortor.
+            <b>Donec lacus nunc, viverra nec, blandit vel, egestas et, augue</b
+            >. Integer id quam. Morbi mi. Quisque nisl felis, venenatis
+            tristique, dignissim in, ultrices sit amet, augue.
+            <b>Morbi in dui quis est pulvinar ullamcorper</b>. Proin sodales
+            libero eget ante. Nulla quam.
+            <i
+              >Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+              posuere cubilia Curae; Morbi lacinia molestie dui</i
+            >. Aenean laoreet. Vestibulum nisi lectus, commodo ac, facilisis ac,
+            ultricies eu, pede. Ut orci risus, accumsan porttitor, cursus quis,
+            aliquet eget, justo. Sed pretium blandit orci. Ut eu diam at pede
+            suscipit sodales. Aenean lectus elit, fermentum non, convallis id,
+            sagittis at, neque.
+          </p>
+
+          <p class="py-6">
+            Nullam mauris orci, aliquet et, iaculis et, viverra vitae, ligula.
+            Nulla ut felis in purus aliquam imperdiet. Maecenas aliquet mollis
+            lectus. Vivamus consectetuer risus et tortor.
+            <i>Vestibulum tincidunt malesuada tellus</i>. Lorem ipsum dolor sit
+            amet, consectetur adipiscing elit. Integer nec odio. Praesent
+            libero. <b>Ut eu diam at pede suscipit sodales</b>. Sed cursus ante
+            dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
+            Duis sagittis ipsum. Praesent mauris.
+          </p>
+
+          <p class="py-6">
+            Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum
+            lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora
+            torquent per conubia nostra, per inceptos himenaeos. Curabitur
+            sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur
+            tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor.
+            Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel
+            nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit
+            quis, luctus non, massa.
+          </p>
+
+          <p class="py-6">
+            Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum.
+            <i>Mauris massa</i>. Nulla metus metus, ullamcorper vel, tincidunt
+            sed, euismod in, nibh. Quisque volutpat condimentum velit. Class
+            aptent taciti sociosqu ad litora torquent per conubia nostra, per
+            inceptos himenaeos. Nam nec ante. Sed lacinia, urna non tincidunt
+            mattis, tortor neque adipiscing diam, a cursus ipsum ante quis
+            turpis. Nulla facilisi.
+            <b
+              >Morbi lectus risus, iaculis vel, suscipit quis, luctus non,
+              massa</b
+            >. Ut fringilla. Suspendisse potenti. <i>Maecenas mattis</i>. Nunc
+            feugiat mi a tellus consequat imperdiet.
+          </p>
+
+          <p class="py-6">
+            Vestibulum sapien. Proin quam. Etiam ultrices. Suspendisse in justo
+            eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus
+            magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis
+            sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis
+            in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi
+            lacinia molestie dui. Praesent blandit dolor. Sed non quam.
+            <b>Nunc feugiat mi a tellus consequat imperdiet</b>. In vel mi sit
+            amet augue congue elementum.
+            <i
+              >Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in,
+              nibh</i
+            >. Morbi in ipsum sit amet pede facilisis laoreet.
+          </p>
+
+          <p class="py-6">
+            Donec lacus nunc, viverra nec, blandit vel, egestas et, augue.
+            <b
+              >Quisque cursus, metus vitae pharetra auctor, sem massa mattis
+              sem, at interdum magna augue eget diam</b
+            >. Vestibulum tincidunt malesuada tellus. Ut ultrices ultrices enim.
+            <b>Suspendisse in justo eu magna luctus suscipit</b>. Curabitur sit
+            amet mauris.
+            <i
+              >Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in,
+              nibh</i
+            >. Morbi in dui quis est pulvinar ullamcorper. Nulla facilisi.
+            Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a
+            tortor. Integer id quam. Morbi mi. Quisque nisl felis, venenatis
+            tristique, dignissim in, ultrices sit amet, augue.
+          </p>
+        </div>
+      </div>
+      <div class="bg-green-400 rounded">
+        <div class="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:px-8">
+          <div class="mx-auto max-w-4xl text-center">
+            <p class="mt-3 text-4xl text-white sm:mt-4">
+              We hope you have enjoyed the article
+            </p>
+          </div>
+          <dl
+            class="mt-10 text-center sm:mx-auto sm:grid sm:max-w-3xl sm:grid-cols-3 sm:gap-8"
+          >
+            <div class="flex flex-col">
+              <dt
+              class="order-1 mt-2 text-lg font-medium leading-6 text-white"
+            >
+              You started reading at:
+            </dt>
+              <dd
+                id="start-time"
+                class="order-2 text-3xl font-bold tracking-tight text-black"
+              ></dd>
+
+            </div>
+            <div id="end-time-container" class="mt-0 flex flex-col hidden">
+              <dt
+                class="order-1 mt-2 text-lg font-medium leading-6 text-white"
+              >
+                You finished reading at:
+              </dt>
+              <dd
+                id="end-time"
+                class="order-2 text-3xl font-bold tracking-tight text-black"
+              >
+              End
+              </dd>
+            </div>
+            <div id="total-reading-container" class="flex flex-col hidden">
+              <dt class="order-1 mt-2 text-lg font-medium leading-6 text-white">
+                Your total reading time was:
+              </dt>
+              <dd
+                id="total-reading"
+                class="order-2 font-bold tracking-tight text-black text-3xl"
+              ></dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
